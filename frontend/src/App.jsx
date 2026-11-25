@@ -1,46 +1,16 @@
-
-import { useState } from "react";
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./pages/login";
+import Project from "./pages/project";
+import Tasks from "./pages/tasks";
 function App() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  
-
-  function print() {
-    console.log(email, password);
-  }
-
-  return (
-    <>
-      <div className="text-blue-500 text-5xl font-bold">
-        HI
-      </div>
-
-      <input type="text"
-        placeholder="Enter your name"
-      />
-
-      <input
-        type="email"
-        required
-        placeholder="Enter your email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-
-      <input
-        type="password"
-        required
-        placeholder="Enter your password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-
-      <button type="button" onClick={print}>
-        Submit
-      </button>
-    </>
+  return(
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login/>}/>
+        <Route path="/project" element={<Project/>}/>
+        <Route path="/tasks" element={<Tasks/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
-
 export default App;
