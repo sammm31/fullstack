@@ -7,6 +7,7 @@ import Dashboard from './pages/dashboard';
 import Calender from './pages/calender';
 import Settings from './pages/settings';
 import Team from './pages/team';
+import Register from './pages/register';
 function App() {
   return(
     <BrowserRouter>
@@ -18,8 +19,8 @@ function App() {
       <Route path= "/dashboard" element={<Dashboard/>}/>
       <Route path= "/calender" element={<Calender/>}/>
       <Route path= "/settings" element={<Settings/>}/>
-      <Route path="/Team" element={<Team/>}/>{
-        }
+      <Route path="/Team" element={<Team/>}/>
+      <Route path="/register" element={<Register/>}/>
       
     </Routes>
     </BrowserRouter>
