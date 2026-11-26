@@ -4,11 +4,28 @@ import { useState } from "react";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+  const[formdata, setFormdata]= useState({
+    username :"",
+    password:""
+  })
+  const navigate=useNavigate();
+  function handlechange(e){
+    
+    setFormdata({
+      ... formdata,
+      [e.target.name]:e.target.value
+
+   } )
+  }
 
   function print() {
-    console.log(email, password);
+    
+    console.log("login page",formdata);
+    navigate("/dashboard",{state:formdata})
   }
+  {/* function print(){
+    console.log(email,password)}
+    */}
 
   return (
     <>
@@ -21,19 +38,22 @@ function Login() {
       />
 
       <input
-        type="email"
+        type="text"
+        name="username"
         required
-        placeholder="Enter your email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Enter your username"
+        
+        onChange={handlechange}
       />
+      {/* <input type="email" required placeholder="Enter your email" value{email} onChange={(e)=>setEmail(e.target.value)}*/}
 
       <input
         type="password"
+        name="password"
         required
         placeholder="Enter your password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        
+        onChange={handlechange}
       />
 
       <button type="button" onClick={print}>
