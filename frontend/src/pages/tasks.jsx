@@ -1,7 +1,7 @@
 function Tasks(){
     return(
         <div>
-           <h1>Tasks</h1> 
+           <h1>TASKS</h1> 
 
         </div>
     );
