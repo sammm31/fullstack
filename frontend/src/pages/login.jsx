@@ -35,7 +35,9 @@ function Login() {
   }
     return ( 
     <>
+      <div  className ="min-h-screen flex justify-center items-center bg-yellow-100 "> </div>
       <div>Login</div>
+      
       {/*}
       <input type="email" required placeholder="Enter your email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
       <input type="password" required placeholder="Enter your password" value={pass} onChange={(e)=>{setPass(e.target.value)} }/>
@@ -43,7 +45,9 @@ function Login() {
       <button type="submit" onClick={()=>print()}>Submit</button>
       */}
       
-      <form onSubmit={handlesubmit}>
+      <form onSubmit={handlesubmit} 
+      className="bg-white w-96 p-8 rounded-xl shadow-lg space-y-4 border-2 border-black"
+            >
         <input type="text" required placeholder="Enter your username" name="username"  onChange={handlechange}/>
         <input type="password" required placeholder="Enter your password" name="password" onChange={handlechange }/>
         <button type="submit" >Submit</button>

@@ -21,12 +21,22 @@ function Register() {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit1)}>
+         <div className="min-h-screen flex justify-center items-center bg-gray-100">
+
+        
+        <form onSubmit={handleSubmit(onSubmit1)} 
+          className= " bg-yellow-100 w-96 p-8 rounded-xl shadow-lg space-y-2" 
+        >
+        <h1 className="text-2xl font-bold text-center text-blue-600">
+                REGISTER FORM</h1>
+        
 
             <input
                 type="text"
                 placeholder="Enter your name"
                 {...register("name")}
+                className="w-full border border-black-300 p-3 rounded-lg "
+                
             />
             <p>{errors.name?.message}</p>
 
@@ -34,6 +44,7 @@ function Register() {
                 type="email"
                 placeholder="Enter your email"
                 {...register("email")}
+                className="w-full border border-black-300 p-3 rounded-lg "
             />
             <p>{errors.email?.message}</p>
 
@@ -41,6 +52,7 @@ function Register() {
                 type="password"
                 placeholder="Enter your password"
                 {...register("password")}
+                className="w-full border border-black-300 p-3 rounded-lg "
             />
             <p>{errors.password?.message}</p>
 
@@ -48,12 +60,17 @@ function Register() {
                 type="number"
                 placeholder="Enter your age"
                 {...register("age")}
+                className="w-full border border-black-300 p-3 rounded-lg "
             />
             <p>{errors.age?.message}</p>
 
-            <button type="submit">Submit</button>
+            <button type="submit"
+                className="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold">SUBMIT
+            
+            </button>
 
         </form>
+        </div>
     );
 }
 
