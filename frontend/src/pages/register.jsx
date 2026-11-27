@@ -15,9 +15,9 @@ function Register() {
     });
 
     function onSubmit1(data) {
-        console.log(data);
-        alert("Register success");
-        navigate("/");
+       console.log(data);
+       alert("Register sucessful");
+       navigate("/");
     }
 
     return (
