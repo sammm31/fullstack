@@ -17,7 +17,7 @@ function Register() {
     function onSubmit1(data) {
        console.log(data);
        alert("Register sucessful");
-       navigate("/");
+       navigate("/",{state:data});
     }
 
     return (

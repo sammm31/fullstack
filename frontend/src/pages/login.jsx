@@ -1,31 +1,37 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 function Login() {
   //const[email, setEmail] = useState("")
   //const[pass, setPass] = useState("")
   const navigate = useNavigate();
-  const[formdata, setFormdata] = useState({
+  const[logindata, setLogindata] = useState({
     username:"",
     password:""
   })
+  const location=useLocation();
+  const registerdata=location.state;
 
   function handlechange(e){
     e.preventDefault();
-    setFormdata({
-      ...formdata,
+    setLogindata({
+      ...logindata,
       [e.target.name]:e.target.value
     })
   }
 
   const handlesubmit = (event)=>{
     event.preventDefault();
-    console.log("login page",formdata)
-    alert("Login sucessfull")
+    console.log("login data",logindata)
+    console.log("register data",registerdata)
+   if (logindata.username=== registerdata.name && logindata.password === registerdata.password)
     navigate("/dashboard",{
-      state:formdata
+      state:logindata
     })
+    else{
+      console.log("invalid");
+    }
   }
     return ( 
     <>
@@ -38,7 +44,7 @@ function Login() {
       */}
       
       <form onSubmit={handlesubmit}>
-        <input type="text" required placeholder="Enter your username" name="username" value={formdata.username} onChange={handlechange}/>
+        <input type="text" required placeholder="Enter your username" name="username"  onChange={handlechange}/>
         <input type="password" required placeholder="Enter your password" name="password" onChange={handlechange }/>
         <button type="submit" >Submit</button>
       </form>
